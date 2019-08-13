@@ -1,0 +1,11 @@
+{
+  "enableCompression": false,
+  "use7zip": true,
+  "use32bit": false,
+  "compressionLevel": 4,
+  "useMultithreading": true,
+  "fileType": 0,
+  "enablePasswordEncryption": false,
+  "password": null,
+  "encryptHeader": false
+}

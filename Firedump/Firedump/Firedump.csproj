@@ -1,0 +1,874 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FFEF1C2E-E951-4270-AFBB-807CA84BB79B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Firedump</RootNamespace>
+    <AssemblyName>Firedump</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Dropbox.Api, Version=4.0.0.0, Culture=neutral, PublicKeyToken=310f0e82fbb45d01, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dropbox.Api.4.9.4\lib\net45\Dropbox.Api.dll</HintPath>
+    </Reference>
+    <Reference Include="Effort, Version=2.2.1.0, Culture=neutral, PublicKeyToken=6a46696d54971e6d, processorArchitecture=MSIL">
+      <HintPath>..\packages\Effort.EF6.2.2.1\lib\net45\Effort.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FastColoredTextBox, Version=2.16.24.0, Culture=neutral, PublicKeyToken=fb8aa12b994ef61b, processorArchitecture=MSIL">
+      <HintPath>..\packages\FCTB.2.16.24\lib\FastColoredTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.8.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.8.0\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack-Core.1.1.2\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.ShellExtensions, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.ShellExtensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.17.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.17\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Server, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Server.1.1.0.0\lib\net45\MySql.Server.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.6.6\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="NMemory, Version=3.0.0.0, Culture=neutral, PublicKeyToken=afc61983f100d280, processorArchitecture=MSIL">
+      <HintPath>..\packages\NMemory.3.1.0\lib\net45\NMemory.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.19.3.1\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.111.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.111.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.111.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.111.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.111.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.111.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Topshelf, Version=4.2.1.215, Culture=neutral, PublicKeyToken=b800c4cfcdeea87b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Topshelf.4.2.1\lib\net452\Topshelf.dll</HintPath>
+    </Reference>
+    <Reference Include="Topshelf.NLog, Version=4.2.1.215, Culture=neutral, PublicKeyToken=b800c4cfcdeea87b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Topshelf.NLog.4.2.1\lib\net452\Topshelf.NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WinSCPnet, Version=1.3.6.7136, Culture=neutral, PublicKeyToken=2271ec4a3c56d0bf, processorArchitecture=MSIL">
+      <HintPath>..\packages\WinSCP.5.9.3\lib\WinSCPnet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="attributes\BaseAttr.cs" />
+    <Compile Include="attributes\Deprecated.cs" />
+    <Compile Include="attributes\Implement.cs" />
+    <Compile Include="attributes\Refactor.cs" />
+    <Compile Include="attributes\Resolve.cs" />
+    <Compile Include="attributes\Tested.cs" />
+    <Compile Include="creational\db\AbstractDbFactory.cs" />
+    <Compile Include="creational\db\DbAdapterFactory.cs" />
+    <Compile Include="creational\db\DbCommandFactory.cs" />
+    <Compile Include="creational\db\DbConnectionFactory.cs" />
+    <Compile Include="creational\sql\ISqlBuilder.cs" />
+    <Compile Include="creational\sql\ConnectionStringFactory.cs" />
+    <Compile Include="creational\sql\MySqlConnectionStringFactory.cs" />
+    <Compile Include="creational\sql\OracleSqlBuilder.cs" />
+    <Compile Include="creational\sql\SqlBuilderFactory.cs" />
+    <Compile Include="creational\_DbUtils.cs" />
+    <Compile Include="exceptions\AppException.cs" />
+    <Compile Include="exceptions\EntityException.cs" />
+    <Compile Include="exceptions\EntityNotExistsException.cs" />
+    <Compile Include="exceptions\SqlException.cs" />
+    <Compile Include="sqlitetables\backup_locations.cs" />
+    <Compile Include="sqlitetables\DbTypeEnum.cs" />
+    <Compile Include="sqlitetables\firedumpDataModel.Context.cs" />
+    <Compile Include="sqlitetables\logs.cs" />
+    <Compile Include="MainHome.MenuExecutors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sqlitetables\sql_servers.cs" />
+    <Compile Include="sqlitetables\schedules.cs" />
+    <Compile Include="sqlitetables\schedule_save_locations.cs" />
+    <Compile Include="usercontrols\Editor.Common.Actions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="sqlitetables\userinfo.cs" />
+    <Compile Include="usercontrols\IParentRef.cs" />
+    <Compile Include="utils\Consts.cs" />
+    <Compile Include="creational\TabBuilder.cs" />
+    <Compile Include="control\editor\Words.cs" />
+    <Compile Include="firedumpdbDataSet.cs">
+      <DependentUpon>firedumpdbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="firedumpdbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>firedumpdbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AboutForm.Designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\mysql\connect\DatabaseConnect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\mysql\connect\DatabaseConnect.Designer.cs">
+      <DependentUpon>DatabaseConnect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProgressFormContainer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProgressFormContainer.Designer.cs">
+      <DependentUpon>ProgressFormContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\location\DropboxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\location\DropboxForm.Designer.cs">
+      <DependentUpon>DropboxForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\location\FileSystem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\location\FileSystem.Designer.cs">
+      <DependentUpon>FileSystem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\location\FTPDirectory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\location\FTPDirectory.Designer.cs">
+      <DependentUpon>FTPDirectory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\location\FTPFileBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\location\FTPFileBrowser.Designer.cs">
+      <DependentUpon>FTPFileBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\location\FTPLocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\location\FTPLocation.Designer.cs">
+      <DependentUpon>FTPLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\location\GoogleDriveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\location\GoogleDriveForm.Designer.cs">
+      <DependentUpon>GoogleDriveForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\mysql\sqlviewer\IIntelliSense.cs" />
+    <Compile Include="Forms\schedule\EmailSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\schedule\EmailSchedule.Designer.cs">
+      <DependentUpon>EmailSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\schedule\Logs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\schedule\Logs.Designer.cs">
+      <DependentUpon>Logs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\schedule\NewJobForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\schedule\NewJobForm.Designer.cs">
+      <DependentUpon>NewJobForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\schedule\SchedulerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\schedule\SchedulerForm.Designer.cs">
+      <DependentUpon>SchedulerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\sqlimport\ImportSQL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\sqlimport\ImportSQL.Designer.cs">
+      <DependentUpon>ImportSQL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="models\events\ConChangedEventArgs.cs" />
+    <Compile Include="models\configuration\dynamicconfig\CompressionConfig.cs" />
+    <Compile Include="models\configuration\dynamicconfig\DropBoxCredentials.cs" />
+    <Compile Include="models\configuration\dynamicconfig\DumpCredentialsConfig.cs" />
+    <Compile Include="models\configuration\dynamicconfig\FTPCredentialsConfig.cs" />
+    <Compile Include="models\configuration\dynamicconfig\ImportCredentialsConfig.cs" />
+    <Compile Include="models\configuration\dynamicconfig\LocationCredentialsConfig.cs" />
+    <Compile Include="models\configuration\jsonconfig\dto\CompressDto.cs" />
+    <Compile Include="models\configuration\jsonconfig\dto\SqlDumpDto.cs" />
+    <Compile Include="models\FinalImageIndex.cs" />
+    <Compile Include="models\sql\SQL.cs" />
+    <Compile Include="models\TabPageHolder.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="utils\db\DB.cs" />
+    <Compile Include="utils\db\DbUtils.cs" />
+    <Compile Include="control\dumpimport\CompressionAdapter.cs" />
+    <Compile Include="models\events\ConnectionEventArgs.cs" />
+    <Compile Include="models\events\GenericEventArg.cs" />
+    <Compile Include="models\events\IGenericEventArgs.cs" />
+    <Compile Include="models\events\ITriplet.cs" />
+    <Compile Include="models\events\TripletEventArgs.cs" />
+    <Compile Include="models\BaseStatus.cs" />
+    <Compile Include="models\JobDetail.cs" />
+    <Compile Include="models\ServiceStatus.cs" />
+    <Compile Include="models\ServiceType.cs" />
+    <Compile Include="control\dumpimport\ImportAdapter.cs" />
+    <Compile Include="control\dumpimport\ImportAdapterManager.cs" />
+    <Compile Include="models\ImportResultSet.cs" />
+    <Compile Include="control\dumpimport\SQLImport.cs" />
+    <Compile Include="models\dbinfo\ColumnInfo.cs" />
+    <Compile Include="models\dbinfo\Indexes.cs" />
+    <Compile Include="models\dbinfo\TableInfo.cs" />
+    <Compile Include="models\location\LocationConnectionResultSet.cs" />
+    <Compile Include="models\location\FTPUtils.cs" />
+    <Compile Include="models\location\ILocation.cs" />
+    <Compile Include="models\location\ILocationCloud.cs" />
+    <Compile Include="models\location\Location.cs" />
+    <Compile Include="models\location\LocationAdapter.cs" />
+    <Compile Include="models\location\LocationAdapterManager.cs" />
+    <Compile Include="models\location\LocationCloudBox.cs" />
+    <Compile Include="models\location\LocationCloudDrive.cs" />
+    <Compile Include="models\location\LocationFtp.cs" />
+    <Compile Include="models\location\LocationLocal.cs" />
+    <Compile Include="models\location\LocationResultSet.cs" />
+    <Compile Include="models\location\UIServiceDemo.cs" />
+    <Compile Include="utils\db\ConnectionResultSet.cs" />
+    <Compile Include="Forms\mysql\NewSqlServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\mysql\NewSqlServer.Designer.cs">
+      <DependentUpon>NewSqlServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\email\email.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\email\email.Designer.cs">
+      <DependentUpon>email.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\email\emailconfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\email\emailconfig.Designer.cs">
+      <DependentUpon>emailconfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="models\email\email.cs" />
+    <Compile Include="Forms\location\LocationSwitchboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\location\LocationSwitchboard.Designer.cs">
+      <DependentUpon>LocationSwitchboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\configuration\GeneralConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\configuration\GeneralConfiguration.Designer.cs">
+      <DependentUpon>GeneralConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="models\dump\CompressionResultSet.cs" />
+    <Compile Include="Forms\configuration\MoreSQLOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\configuration\MoreSQLOptions.Designer.cs">
+      <DependentUpon>MoreSQLOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="models\location\BackupLocation.cs" />
+    <Compile Include="MainHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainHome.Designer.cs">
+      <DependentUpon>MainHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="resources\db\InitDb.cs" />
+    <Compile Include="control\dumpimport\config\CompressConfig.cs" />
+    <Compile Include="control\dumpimport\config\ConfigurationClass.cs" />
+    <Compile Include="control\dumpimport\config\ConfigurationManager.cs" />
+    <Compile Include="models\configuration\dynamicconfig\CredentialsConfig.cs" />
+    <Compile Include="utils\db\FiredumpContext.cs" />
+    <Compile Include="models\dump\Compression.cs" />
+    <Compile Include="models\dump\DumpResultSet.cs" />
+    <Compile Include="control\dumpimport\SqlDump.cs" />
+    <Compile Include="control\dumpimport\SqlDumpAdapter.cs" />
+    <Compile Include="control\dumpimport\config\SqlDumpConfig.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Forms\mysql\sqlviewer\MysqlWords.cs" />
+    <Compile Include="Forms\mysql\sqlviewer\SqlDbViewerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\mysql\sqlviewer\SqlDbViewerForm.Designer.cs">
+      <DependentUpon>SqlDbViewerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\mysql\status\AnalyzeDbForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\mysql\status\AnalyzeDbForm.Designer.cs">
+      <DependentUpon>AnalyzeDbForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="serviceproccess\FiredumpService.cs" />
+    <Compile Include="serviceproccess\ScheduleManager.cs" />
+    <Compile Include="tests\FiredumpContextTest.cs" />
+    <Compile Include="tests\IFireDumpContext.cs" />
+    <Compile Include="tests\TestContext.cs" />
+    <Compile Include="tests\TestMysql_serverDbSet.cs" />
+    <Compile Include="usercontrols\CredentialsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\CredentialsUserControl.Designer.cs">
+      <DependentUpon>CredentialsUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\DataView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\DataView.Designer.cs">
+      <DependentUpon>DataView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\Editor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\Editor.Designer.cs">
+      <DependentUpon>Editor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="models\Table.cs" />
+    <Compile Include="usercontrols\ServiceManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\ServiceManager.Designer.cs">
+      <DependentUpon>ServiceManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\ProgressContrainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\ProgressContrainer.Designer.cs">
+      <DependentUpon>ProgressContrainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\ProgressItemLoc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\ProgressItemLoc.Designer.cs">
+      <DependentUpon>ProgressItemLoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\TableView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\TableView.Designer.cs">
+      <DependentUpon>TableView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\TabView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\TabView.Designer.cs">
+      <DependentUpon>TabView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\UserControlReference.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="utils\editor\AutoMenuItemBuilder.cs" />
+    <Compile Include="utils\editor\EditorConfig.cs" />
+    <Compile Include="utils\parsers\EditorUtils.cs" />
+    <Compile Include="utils\parsers\Formatter.cs" />
+    <Compile Include="utils\parsers\LIB.cs" />
+    <Compile Include="exceptions\MyFormatterException.cs" />
+    <Compile Include="utils\OS.cs" />
+    <Compile Include="creational\sql\MySqlSqlBuilder.cs" />
+    <Compile Include="utils\parsers\SqlStatementParser.cs" />
+    <Compile Include="utils\parsers\SqlStatementParserWrapper.cs" />
+    <Compile Include="utils\parsers\StatementType.cs" />
+    <Compile Include="utils\parsers\StringUtils.cs" />
+    <EmbeddedResource Include="Forms\AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\mysql\connect\DatabaseConnect.resx">
+      <DependentUpon>DatabaseConnect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProgressFormContainer.resx">
+      <DependentUpon>ProgressFormContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\location\DropboxForm.resx">
+      <DependentUpon>DropboxForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\location\FileSystem.resx">
+      <DependentUpon>FileSystem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\location\FTPDirectory.resx">
+      <DependentUpon>FTPDirectory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\location\FTPFileBrowser.resx">
+      <DependentUpon>FTPFileBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\location\FTPLocation.resx">
+      <DependentUpon>FTPLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\location\GoogleDriveForm.resx">
+      <DependentUpon>GoogleDriveForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\mysql\NewSqlServer.resx">
+      <DependentUpon>NewSqlServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\email\email.resx">
+      <DependentUpon>email.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\email\emailconfig.resx">
+      <DependentUpon>emailconfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\configuration\GeneralConfiguration.resx">
+      <DependentUpon>GeneralConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\schedule\EmailSchedule.resx">
+      <DependentUpon>EmailSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\schedule\Logs.resx">
+      <DependentUpon>Logs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\schedule\NewJobForm.resx">
+      <DependentUpon>NewJobForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\schedule\SchedulerForm.resx">
+      <DependentUpon>SchedulerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\sqlimport\ImportSQL.resx">
+      <DependentUpon>ImportSQL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\location\LocationSwitchboard.resx">
+      <DependentUpon>LocationSwitchboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\configuration\MoreSQLOptions.resx">
+      <DependentUpon>MoreSQLOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainHome.resx">
+      <DependentUpon>MainHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Forms\mysql\sqlviewer\SqlDbViewerForm.resx">
+      <DependentUpon>SqlDbViewerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\mysql\status\AnalyzeDbForm.resx">
+      <DependentUpon>AnalyzeDbForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\CredentialsUserControl.resx">
+      <DependentUpon>CredentialsUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\DataView.resx">
+      <DependentUpon>DataView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\Editor.resx">
+      <DependentUpon>Editor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\ServiceManager.resx">
+      <DependentUpon>ServiceManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\ProgressContrainer.resx">
+      <DependentUpon>ProgressContrainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\ProgressItemLoc.resx">
+      <DependentUpon>ProgressItemLoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\TableView.resx">
+      <DependentUpon>TableView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\TabView.resx">
+      <DependentUpon>TabView.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="firedumpdbDataSet.xsc">
+      <DependentUpon>firedumpdbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="firedumpdbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>firedumpdbDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="firedumpdbDataSet.xss">
+      <DependentUpon>firedumpdbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="resources\7z64\7z.sfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="resources\7z64\7zCon.sfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="resources\7z64\descript.ion">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="resources\7z\7z.sfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="resources\7z\7zCon.sfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="resources\7z\descript.ion">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="resources\db\firedumpdb.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="resources\mysqldump\charsets\README">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="serviceinstall.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="servicerestart.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="servicestart.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="servicestop.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="serviceuninstall.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="resources\7z64\7-zip.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\7z64\7z.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\7z64\7z.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\7z64\7zFM.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\7z64\7zG.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\7z\7-zip.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\7z\7z.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\7z\7z.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\7z\7zFM.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\7z\7zG.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="resources\icons\Database-128.png" />
+    <None Include="resources\dropboxicon.png" />
+    <None Include="resources\ftpicon.png" />
+    <None Include="resources\googeldriveicon.png" />
+    <None Include="resources\emailicon.png" />
+    <Content Include="resources\icons\databaseimage.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="resources\icons\delete_icon.png" />
+    <Content Include="resources\icons\dropboximage.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\icons\fileimage.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\icons\folderimage.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\icons\ftpimage.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\icons\googledriveicon.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\icons\greencircle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="resources\icons\main\function-icon.png" />
+    <None Include="resources\icons\main\index-icon.png" />
+    <None Include="resources\icons\main\key-icon.png" />
+    <None Include="resources\icons\main\procedure-icon.png" />
+    <None Include="resources\icons\main\table-icon.png" />
+    <None Include="resources\icons\main\trigger-icon.png" />
+    <None Include="resources\icons\main\view-icon.png" />
+    <None Include="resources\icons\main\field-icon.png" />
+    <None Include="resources\icons\main\connect-icon.png" />
+    <None Include="resources\icons\main\disconnect-icon.png" />
+    <None Include="resources\icons\main\reconnect-icon.png" />
+    <None Include="resources\icons\main\commit-icon.png" />
+    <None Include="resources\icons\main\rollback-icon.png" />
+    <None Include="resources\icons\main\show-hide-icon.png" />
+    <None Include="resources\icons\main\query-results-icon.png" />
+    <None Include="resources\icons\main\history-icon.png" />
+    <None Include="resources\icons\main\plan-icon.png" />
+    <None Include="resources\icons\main\sql-full-outer-join-icon.png" />
+    <None Include="resources\icons\main\sql-icon.png" />
+    <None Include="resources\icons\main\sql-inner-join-icon.png" />
+    <None Include="resources\icons\main\sql-left-join-icon.png" />
+    <None Include="resources\icons\main\sql-right-join-icon.png" />
+    <None Include="resources\icons\main\next-icon.png" />
+    <None Include="resources\icons\main\prev-icon.png" />
+    <None Include="resources\icons\main\new-tab-icon.png" />
+    <None Include="resources\icons\main\close-tab-icon.png" />
+    <None Include="resources\icons\main\pretty-icon.png" />
+    <None Include="resources\icons\main\find-and-replace-icon.png" />
+    <None Include="resources\icons\main\go-to-code-icon.png" />
+    <None Include="resources\icons\main\search-icon.png" />
+    <None Include="resources\icons\main\trigger-icon.bmp" />
+    <None Include="resources\icons\main\html-icon.png" />
+    <None Include="resources\icons\main\print-icon.png" />
+    <None Include="resources\icons\main\case-sensitive-icon.png" />
+    <None Include="resources\icons\main\execute-current-icon.bmp" />
+    <None Include="resources\icons\main\execute-icon.png" />
+    <None Include="resources\icons\main\execute-next-icon.png" />
+    <None Include="resources\icons\main\open-file-icon.png" />
+    <None Include="resources\icons\main\redo-icon.png" />
+    <None Include="resources\icons\main\saveall-icon.bmp" />
+    <None Include="resources\icons\main\save-icon.png" />
+    <None Include="resources\icons\main\undo-icon.png" />
+    <None Include="resources\icons\main\execute-current-icon.png" />
+    <None Include="resources\icons\main\stop-icon.png" />
+    <Content Include="resources\icons\redcircle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\icons\s271qcbq.bmp" />
+    <Content Include="resources\icons\tableimage.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\icons\thispc.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\icons\deleteicon.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="resources\mycomputericon.png" />
+    <None Include="resources\firedump.png" />
+    <Content Include="resources\icons\sqlselecticon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="resources\icons_sqlselecticon.png.png" />
+    <Content Include="resources\mysqldump\charsets\armscii8.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\mysqldump\charsets\ascii.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\mysqldump\charsets\cp1250.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\mysqldump\charsets\cp1251.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\mysqldump\charsets\cp1256.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\mysqldump\charsets\cp1257.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\mysqldump\charsets\cp850.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\mysqldump\charsets\cp852.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\mysqldump\charsets\cp866.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\mysqldump\charsets\dec8.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\mysqldump\charsets\geostd8.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\mysqldump\charsets\greek.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\mysqldump\charsets\hebrew.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\mysqldump\charsets\hp8.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\mysqldump\charsets\Index.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\mysqldump\charsets\keybcs2.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\mysqldump\charsets\koi8r.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\mysqldump\charsets\koi8u.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\mysqldump\charsets\latin1.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\mysqldump\charsets\latin2.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\mysqldump\charsets\latin5.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\mysqldump\charsets\latin7.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\mysqldump\charsets\macce.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\mysqldump\charsets\macroman.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\mysqldump\charsets\swe7.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\mysqldump\mysqldump.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="resources\sqlselecticon.png.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
