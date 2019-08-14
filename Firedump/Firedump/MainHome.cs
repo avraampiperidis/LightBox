@@ -19,6 +19,7 @@ namespace Firedump
         private sqlservers server;
         private bool showSystemDatabases = false;
 
+        // read only
         public List<UserControlReference> ChildControls { get; }
 
         public MainHome()
