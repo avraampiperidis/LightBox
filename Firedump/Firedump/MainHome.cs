@@ -74,7 +74,7 @@ namespace Firedump
                     this.setHomeConnectionStatus();
                 });
                 uc.Send += new EventHandler<object>((sender,e) =>
-                    this.DispatchEvent((ITriplet<UserControlReference, UserControlReference, List<string>>)
+                    this.DispatchEvent((ITriplet<UserControlReference, UserControlReference, object>)
                     ((IGenericEventArgs<ITriplet<UserControlReference, UserControlReference, object>>)e).GetObject())
                 );
             }
@@ -222,7 +222,7 @@ namespace Firedump
         }
 
 
-        private void DispatchEvent(ITriplet<UserControlReference, UserControlReference, List<string>> triplet)
+        private void DispatchEvent(ITriplet<UserControlReference, UserControlReference, object> triplet)
         {
             foreach (UserControlReference c in ChildControls)
             {
