@@ -1,4 +1,5 @@
 ﻿using FastColoredTextBoxNS;
+using Firedump.attributes;
 using Firedump.control.editor;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,7 @@ namespace Firedump.utils.editor
                MinFragmentLength = 3,ForeColor = Color.Blue};
         }
 
+        [ForTest("test success and most importantly test fail and check for sql string imutability")]
         internal static string FormatSql(string sql)
         {
             try
@@ -40,8 +42,9 @@ namespace Firedump.utils.editor
             }
             catch (MyFormatterException ex)
             {
-                // do nothing return the orignal sql
+                // Do nothing.
             }
+            //Return the orignal sql
             return sql;
         }
 

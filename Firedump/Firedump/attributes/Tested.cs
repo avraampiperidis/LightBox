@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Firedump.attributes
 {
-    public class Tested : BaseAttr
+    public class ForTest : BaseAttr
     {
-        public Tested(string label) : base(label) { }
+        public ForTest(string label) : base(label) { }
     }
 }
