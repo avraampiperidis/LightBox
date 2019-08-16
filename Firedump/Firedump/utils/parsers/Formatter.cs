@@ -8,7 +8,7 @@ namespace Firedump.utils.editor
 {
     // https://github.com/mitchavines/SQL_Formatter
     //An Experimental sql formatter
-    internal class Formatter
+    class Formatter
     {
 
         private int tabLevel = 0;               // SQL indentation

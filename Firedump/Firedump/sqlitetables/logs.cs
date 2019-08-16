@@ -10,7 +10,6 @@
 namespace Firedump
 {
     using System;
-    using System.Collections.Generic;
 
     public partial class logs
     {
