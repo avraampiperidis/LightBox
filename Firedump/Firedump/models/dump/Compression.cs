@@ -194,11 +194,12 @@ namespace Firedump.models.dump
                 while (!proc.StandardOutput.EndOfStream)
                 {
                     string line = proc.StandardOutput.ReadLine();
-                    Console.WriteLine("Comp:" + line);
+                    //Console.WriteLine("Comp:" + line);
                     if (line.Contains("%"))
                     {
                         int per = 0;
                         int.TryParse(line.Substring(0, 3), out per);
+                        //Console.WriteLine("Prognum: "+per);
                         onCompressProgress(per);
                     }
                 }

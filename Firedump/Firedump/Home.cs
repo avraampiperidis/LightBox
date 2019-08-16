@@ -302,7 +302,7 @@ namespace Firedump
 
         private void bStartDump_Click(object sender, EventArgs e)
         {
-            new ProgressFormContainer().Show();
+            //new ProgressFormContainer().Show();
             if (!performChecks())
             {
                 return;
@@ -440,10 +440,11 @@ namespace Firedump
             pbDumpExec?.Invoke((MethodInvoker)delegate () {
                 try
                 {
-                    pbDumpExec.Value = pbDumpExec.Maximum;
+                    pbDumpExec.Value = progress;
                 }
                 catch(ArgumentOutOfRangeException ex)
                 {
+                    Console.WriteLine(ex.ToString());
                 }
                 
             });
@@ -719,9 +720,9 @@ namespace Firedump
         private void setSaveProgressHandler(int progress, int speed)
         {
             setProgressValue(progress);
-            Console.WriteLine(speed);
+            //Console.WriteLine(speed);
             if(speed == -1) { return; }
-            Console.WriteLine(speed);
+            //Console.WriteLine(speed);
             string speedlabelext = "B/s";
             double tspeed = 0;
             if(speed <= 1050)
