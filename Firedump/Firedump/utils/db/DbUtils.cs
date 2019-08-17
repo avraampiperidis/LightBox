@@ -3,6 +3,7 @@ using Firedump.creational;
 using Firedump.creational.db;
 using Firedump.models.db;
 using Firedump.models.pojos;
+using Firedump.utils.encryption;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -132,7 +133,7 @@ namespace Firedump.models.dbUtils
                 {
                     adapter.Fill(data);
                 }
-                catch (Exception ex) { }
+                catch (Exception ex) { Console.WriteLine(ex.ToString()); }
                 
             }
             return data;
@@ -157,7 +158,7 @@ namespace Firedump.models.dbUtils
         internal static sqlservers getSqlServerFromTable(DataTable table, ListControl control)
         {
             return new sqlservers((string)table.Rows[control.SelectedIndex]["host"], unchecked((int)(long)table.Rows[control.SelectedIndex]["port"]),
-                (string)table.Rows[control.SelectedIndex]["username"], (string)table.Rows[control.SelectedIndex]["password"]);
+                (string)table.Rows[control.SelectedIndex]["username"], EncryptionUtils.sDecrypt((string)table.Rows[control.SelectedIndex]["password"]));
         }
     }
 }

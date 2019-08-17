@@ -32,7 +32,7 @@ namespace Firedump
         static void Main(string[] args)
         {
             if (args.Length == 0)
-            {              
+            {
                 Application.EnableVisualStyles();
                 //configuration initialization
                 ConfigurationManager.getInstance();

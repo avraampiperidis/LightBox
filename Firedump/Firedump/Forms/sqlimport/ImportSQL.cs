@@ -232,7 +232,7 @@ namespace Firedump.Forms.sqlimport
                 {
                     database = (string)row["database"];
                 }
-                catch(Exception ex) { }
+                catch(Exception ex) {  }
                 databases = new List<string>();
                 databases.Add("none");
 

@@ -74,6 +74,7 @@ namespace Firedump.usercontrols
                 proc.WaitForExit();
             }catch(Exception ex)
             {
+                Console.WriteLine(ex.ToString());
             }
 
             //after that , check to see if the service installed successfully and if its running
@@ -135,6 +136,7 @@ namespace Firedump.usercontrols
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.ToString());
             }
             
             //after that , check to see if the service started successfully 
@@ -267,7 +269,7 @@ namespace Firedump.usercontrols
                     proc.Start();
                     proc.WaitForExit();
                 }
-                catch (Exception ex) { }
+                catch (Exception ex) { Console.WriteLine(ex.ToString()); }
 
                 //after that , check to see if the service started successfully 
                 sc = GetServiceStatus();

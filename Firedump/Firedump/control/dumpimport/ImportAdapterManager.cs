@@ -271,7 +271,7 @@ namespace Firedump.models.sqlimport
                 }
                 catch (Exception ex)
                 {
-
+                    Console.WriteLine(ex.ToString());
                 }
                 onImportError(result.errorMessage);
             }

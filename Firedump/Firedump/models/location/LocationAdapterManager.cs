@@ -103,7 +103,7 @@ namespace Firedump.models.location
                 {
                     File.Delete(sourcePath);
                 }
-                catch(Exception e){ }
+                catch(Exception e){ Console.WriteLine(e.ToString()); }
                 onSaveComplete(results);
             }
         }

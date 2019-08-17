@@ -217,7 +217,7 @@ namespace Firedump.models.location
                 }
                 catch(Exception ex)
                 {
-
+                    Console.WriteLine(ex.ToString());
                 }
                 session.MoveFile(locationinfo[0]+sourceinfo[1],locationinfo[0]+locationinfo[1]+ext);
 

@@ -1,5 +1,6 @@
 ﻿using Firedump.models.databaseUtils;
 using Firedump.models.db;
+using Firedump.utils.encryption;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,7 +42,7 @@ namespace Firedump.Forms.mysql
             if (server.port != 0)
                 tbPort.Text = server.port.ToString();
             tbUsername.Text = server.username;
-            tbPassword.Text = server.password;
+            tbPassword.Text = EncryptionUtils.sDecrypt(server.password);
             tbDatabase.Text = server.database;
 
         }
@@ -151,10 +152,11 @@ namespace Firedump.Forms.mysql
                     return;
                 }
                 sqlservers server = createMySqlServerInfoCreds();
+                String passwd = EncryptionUtils.sEncrypt(server.password);
                 if (isUpdate)
-                    adapter.UpdateMySqlServerById(tbName.Text, server.port, server.host, server.username, server.password, tbDatabase.Text, mysqlserver.id);
+                    adapter.UpdateMySqlServerById(tbName.Text, server.port, server.host, server.username, passwd, tbDatabase.Text, mysqlserver.id);
                 else
-                    adapter.InsertQuery(tbName.Text, server.port, server.host, server.username, server.password, tbDatabase.Text,0); //prepei na bei kai 
+                    adapter.InsertQuery(tbName.Text, server.port, server.host, server.username, passwd, tbDatabase.Text,0); //prepei na bei kai 
                 //adapter.Insert(tbName.Text, server.port, server.host, server.username, server.password, tbDatabase.Text); //prepei na bei kai database
                 int id = Convert.ToInt32((Int64)adapter.GetIdByName(tbName.Text));
                 onReloadServerData(id);

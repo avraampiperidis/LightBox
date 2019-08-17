@@ -140,6 +140,7 @@ namespace Firedump.service
                             locationAdapterManager.startSave();
                         }catch(Exception ex)
                         {
+                            Console.WriteLine(ex.ToString());
                             //File.AppendAllText(@"servicelog.txt", "Exception "+ex.ToString());
                         }
                     }

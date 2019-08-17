@@ -78,6 +78,7 @@ namespace Firedump.Forms.mysql.status
                                 }
                             } catch (MySqlException ex)
                             {
+                                Console.WriteLine(ex.ToString());
                             }
 
                         }
@@ -103,6 +104,7 @@ namespace Firedump.Forms.mysql.status
                 }
             }catch(Exception ex)
             {
+                Console.WriteLine(ex.ToString());
             }
            
         }
@@ -189,6 +191,7 @@ namespace Firedump.Forms.mysql.status
                     }
                 }catch(Exception ex)
                 {
+                    Console.WriteLine(ex.ToString());
                 }            
             }
 
@@ -232,6 +235,7 @@ namespace Firedump.Forms.mysql.status
                     }
                 }catch(Exception ex)
                 {
+                    Console.WriteLine(ex.ToString());
                 }
 
             }

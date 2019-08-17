@@ -119,7 +119,7 @@ namespace Firedump.Forms.location
                 this.backup_locationsTableAdapter.Fill(this.firedumpdbDataSet.backup_locations);
                 onSaveLocationDeletedAfter(loc);
                 reloadPath();
-            }catch(Exception ex) { }
+            }catch(Exception ex) { Console.WriteLine(ex.ToString()); }
         }
 
         private firedumpdbDataSet.backup_locationsRow findRow(int id)

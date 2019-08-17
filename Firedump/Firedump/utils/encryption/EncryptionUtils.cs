@@ -143,13 +143,24 @@ namespace Firedump.utils.encryption
             return returnbytearray;
         }
 
+        public static String hashSHA256(String data)
+        {
+            String res = "";
+            SHA256CryptoServiceProvider hasher = new SHA256CryptoServiceProvider();
+            byte[] hashedBytes = hasher.ComputeHash(System.Text.Encoding.UTF8.GetBytes(data));
+            res = System.Convert.ToBase64String(hashedBytes);
+            return res;
+        }
+
         public static void testAES()
         {
             String data = "vaggelis 1223 dasdiasdgasd cyka blyat oeo";
+            /*
             String ciphertext = sEncrypt(data);
             Console.WriteLine(ciphertext);
             Console.WriteLine(sDecrypt(ciphertext));
-            //an to apotelesma tou decrypt einai idio me to data pernaei to test
+            //an to apotelesma tou decrypt einai idio me to data pernaei to test*/
+            Console.WriteLine(hashSHA256(data));
         }
     }
 }

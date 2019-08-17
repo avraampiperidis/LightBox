@@ -178,7 +178,7 @@ namespace Firedump.Forms.schedule
                 proc.Start();
                 proc.WaitForExit();
             }
-            catch (Exception ex) { }
+            catch (Exception ex) { Console.WriteLine(ex.ToString()); }
 
             //after that , check to see if the service started successfully 
             sc = GetServiceStatus();
