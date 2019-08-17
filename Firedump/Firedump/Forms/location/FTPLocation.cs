@@ -272,7 +272,7 @@ namespace Firedump.Forms.location
                 tbPort.Text = Convert.ToString((Int64)ftplocation["port"]);
                 tbHost.Text = (string)ftplocation["host"];
                 tbUsername.Text = (string)ftplocation["username"];
-                tbPassword.Text = (string)ftplocation["password"];
+                tbPassword.Text = EncryptionUtils.sDecrypt((string)ftplocation["password"]);
                 tbFilename.Text = (string)ftplocation["filename"];
                 tbChooseAPath.Text = (string)ftplocation["path"];
             }

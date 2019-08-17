@@ -3,6 +3,7 @@ using Firedump.models.configuration.jsonconfig;
 using Firedump.models.dump;
 using Firedump.models.location;
 using Firedump.utils;
+using Firedump.utils.encryption;
 using System;
 using System.Data;
 using System.IO;
@@ -141,7 +142,7 @@ namespace Firedump.models.sqlimport
                             ((FTPCredentialsConfig)config).host = (string)locationdata["host"];
                             config.port = unchecked((int)(Int64)locationdata["port"]);
                             config.username = (string)locationdata["username"];
-                            config.password = (string)locationdata["password"];
+                            config.password = EncryptionUtils.sDecrypt((string)locationdata["password"]);
                             Int64 useSFTP = (Int64)locationdata["usesftp"];
                             if (useSFTP == 1)
                             {

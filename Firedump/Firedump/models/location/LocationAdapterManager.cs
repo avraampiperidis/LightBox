@@ -1,4 +1,5 @@
 ﻿using Firedump.models.configuration.dynamicconfig;
+using Firedump.utils.encryption;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -144,7 +145,7 @@ namespace Firedump.models.location
                     ((FTPCredentialsConfig)config).host = (string)data.Rows[0]["host"];
                     config.port = unchecked((int)(Int64)data.Rows[0]["port"]);
                     config.username = (string)data.Rows[0]["username"];
-                    config.password = (string)data.Rows[0]["password"];
+                    config.password = EncryptionUtils.sDecrypt((string)data.Rows[0]["password"]);
                     Int64 useSFTP = (Int64)data.Rows[0]["usesftp"];
                     if (useSFTP == 1)
                     {
