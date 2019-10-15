@@ -282,6 +282,7 @@
     </Compile>
     <Compile Include="utils\editor\AutoMenuItemBuilder.cs" />
     <Compile Include="utils\editor\EditorConfig.cs" />
+    <Compile Include="utils\encryption\EncryptionUtils.cs" />
     <Compile Include="utils\parsers\EditorUtils.cs" />
     <Compile Include="utils\parsers\Formatter.cs" />
     <Compile Include="utils\parsers\LIB.cs" />
