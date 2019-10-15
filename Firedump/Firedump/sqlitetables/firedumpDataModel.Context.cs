@@ -12,9 +12,8 @@ namespace Firedump
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using Firedump.tests;
 
-    public partial class firedumpdbEntities1 : DbContext, IFireDumpContext
+    public partial class firedumpdbEntities1 : DbContext
     {
         public firedumpdbEntities1()
             : base("name=firedumpdbEntities1")
