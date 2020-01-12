@@ -3,9 +3,9 @@ using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Firedump.sqlitetables;
-using Firedump.creational;
 using MySql.Data.MySqlClient;
 using Oracle.ManagedDataAccess.Client;
+using Firedump.core.db;
 
 namespace FiredumpTest
 {

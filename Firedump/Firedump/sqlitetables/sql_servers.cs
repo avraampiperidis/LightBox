@@ -9,7 +9,7 @@
 
 namespace Firedump
 {
-    using Firedump.models.configuration.dynamicconfig;
+    using Firedump.models;
     using System;
     using System.Collections.Generic;
 

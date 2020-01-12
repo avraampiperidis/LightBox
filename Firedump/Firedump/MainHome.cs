@@ -1,8 +1,6 @@
-﻿using Firedump.Forms.mysql;
+﻿using Firedump.core.db;
+using Firedump.Forms.mysql;
 using Firedump.Forms.mysql.connect;
-using Firedump.models;
-using Firedump.models.db;
-using Firedump.models.dbUtils;
 using Firedump.models.events;
 using Firedump.usercontrols;
 using System;
@@ -191,11 +189,18 @@ namespace Firedump
             }
         }
 
+        // Editor should always be enable.
         private void setConstrolEnableStatus(bool enable)
         {
             foreach (var comp in this.ChildControls)
             {
-                comp.Enabled = enable;
+                if(!(comp is Editor))
+                {
+                    comp.Enabled = enable;
+                } else if(comp is Editor)
+                {
+                    comp.Enabled = true;
+                }
             }
         }
 

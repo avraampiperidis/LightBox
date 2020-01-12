@@ -147,26 +147,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="attributes\BaseAttr.cs" />
-    <Compile Include="attributes\Deprecated.cs" />
-    <Compile Include="attributes\Implement.cs" />
-    <Compile Include="attributes\Refactor.cs" />
-    <Compile Include="attributes\Resolve.cs" />
-    <Compile Include="attributes\Tested.cs" />
-    <Compile Include="creational\db\AbstractDbFactory.cs" />
-    <Compile Include="creational\db\DbAdapterFactory.cs" />
-    <Compile Include="creational\db\DbCommandFactory.cs" />
-    <Compile Include="creational\db\DbConnectionFactory.cs" />
-    <Compile Include="creational\sql\ISqlBuilder.cs" />
-    <Compile Include="creational\sql\ConnectionStringFactory.cs" />
-    <Compile Include="creational\sql\MySqlConnectionStringFactory.cs" />
-    <Compile Include="creational\sql\OracleSqlBuilder.cs" />
-    <Compile Include="creational\sql\SqlBuilderFactory.cs" />
-    <Compile Include="creational\_DbUtils.cs" />
-    <Compile Include="exceptions\AppException.cs" />
-    <Compile Include="exceptions\EntityException.cs" />
-    <Compile Include="exceptions\EntityNotExistsException.cs" />
-    <Compile Include="exceptions\SqlException.cs" />
+    <Compile Include="core\attributes\BaseAttr.cs" />
+    <Compile Include="core\attributes\Deprecated.cs" />
+    <Compile Include="core\attributes\Implement.cs" />
+    <Compile Include="core\attributes\Refactor.cs" />
+    <Compile Include="core\attributes\Resolve.cs" />
+    <Compile Include="core\attributes\Tested.cs" />
+    <Compile Include="core\db\AbstractDbFactory.cs" />
+    <Compile Include="core\db\DbAdapterFactory.cs" />
+    <Compile Include="core\db\DbCommandFactory.cs" />
+    <Compile Include="core\db\DbConnectionFactory.cs" />
+    <Compile Include="core\sql\ISqlBuilder.cs" />
+    <Compile Include="core\sql\ConnectionStringFactory.cs" />
+    <Compile Include="core\sql\MySqlConnectionStringFactory.cs" />
+    <Compile Include="core\sql\OracleSqlBuilder.cs" />
+    <Compile Include="core\sql\SqlBuilderFactory.cs" />
+    <Compile Include="core\db\_DbUtils.cs" />
+    <Compile Include="core\exceptions\AppException.cs" />
+    <Compile Include="core\exceptions\EntityException.cs" />
+    <Compile Include="core\exceptions\EntityNotExistsException.cs" />
+    <Compile Include="core\exceptions\SqlException.cs" />
     <Compile Include="sqlitetables\backup_locations.cs" />
     <Compile Include="sqlitetables\DbTypeEnum.cs" />
     <Compile Include="sqlitetables\firedumpDataModel.Context.cs" />
@@ -177,14 +177,14 @@
     <Compile Include="sqlitetables\sql_servers.cs" />
     <Compile Include="sqlitetables\schedules.cs" />
     <Compile Include="sqlitetables\schedule_save_locations.cs" />
-    <Compile Include="usercontrols\Editor.Common.Actions.cs">
+    <Compile Include="ui\usercontrols\Editor.Common.Actions.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="sqlitetables\userinfo.cs" />
-    <Compile Include="usercontrols\IParentRef.cs" />
-    <Compile Include="utils\Consts.cs" />
-    <Compile Include="creational\TabBuilder.cs" />
-    <Compile Include="control\editor\Words.cs" />
+    <Compile Include="ui\usercontrols\IParentRef.cs" />
+    <Compile Include="core\Consts.cs" />
+    <Compile Include="core\TabBuilder.cs" />
+    <Compile Include="core\sql\Words.cs" />
     <Compile Include="firedumpdbDataSet.cs">
       <DependentUpon>firedumpdbDataSet.xsd</DependentUpon>
     </Compile>
@@ -193,41 +193,41 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>firedumpdbDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Forms\mysql\connect\DatabaseConnect.cs">
+    <Compile Include="ui\forms\connect\DatabaseConnect.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\mysql\connect\DatabaseConnect.Designer.cs">
+    <Compile Include="ui\forms\connect\DatabaseConnect.Designer.cs">
       <DependentUpon>DatabaseConnect.cs</DependentUpon>
     </Compile>
-    <Compile Include="models\events\ConChangedEventArgs.cs" />
-    <Compile Include="models\FinalImageIndex.cs" />
-    <Compile Include="models\sql\SQL.cs" />
-    <Compile Include="models\TabPageHolder.cs">
+    <Compile Include="core\models\events\ConChangedEventArgs.cs" />
+    <Compile Include="core\models\FinalImageIndex.cs" />
+    <Compile Include="core\models\sql\SQL.cs" />
+    <Compile Include="core\models\TabPageHolder.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="utils\db\DB.cs" />
-    <Compile Include="utils\db\DbUtils.cs" />
-    <Compile Include="models\events\ConnectionEventArgs.cs" />
-    <Compile Include="models\events\GenericEventArg.cs" />
-    <Compile Include="models\events\IGenericEventArgs.cs" />
-    <Compile Include="models\events\ITriplet.cs" />
-    <Compile Include="models\events\TripletEventArgs.cs" />
-    <Compile Include="models\BaseStatus.cs" />
-    <Compile Include="models\JobDetail.cs" />
-    <Compile Include="models\dbinfo\ColumnInfo.cs" />
-    <Compile Include="models\dbinfo\Indexes.cs" />
-    <Compile Include="models\dbinfo\TableInfo.cs" />
-    <Compile Include="utils\db\ConnectionResultSet.cs" />
-    <Compile Include="Forms\mysql\NewSqlServer.cs">
+    <Compile Include="core\db\DB.cs" />
+    <Compile Include="core\db\DbUtils.cs" />
+    <Compile Include="core\models\events\ConnectionEventArgs.cs" />
+    <Compile Include="core\models\events\GenericEventArg.cs" />
+    <Compile Include="core\models\events\IGenericEventArgs.cs" />
+    <Compile Include="core\models\events\ITriplet.cs" />
+    <Compile Include="core\models\events\TripletEventArgs.cs" />
+    <Compile Include="core\models\BaseStatus.cs" />
+    <Compile Include="core\models\JobDetail.cs" />
+    <Compile Include="core\models\dbinfo\ColumnInfo.cs" />
+    <Compile Include="core\models\dbinfo\Indexes.cs" />
+    <Compile Include="core\models\dbinfo\TableInfo.cs" />
+    <Compile Include="core\db\ConnectionResultSet.cs" />
+    <Compile Include="ui\forms\NewSqlServer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\mysql\NewSqlServer.Designer.cs">
+    <Compile Include="ui\forms\NewSqlServer.Designer.cs">
       <DependentUpon>NewSqlServer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home.cs">
+    <Compile Include="ui\forms\Home.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home.Designer.cs">
+    <Compile Include="ui\forms\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
     <Compile Include="MainHome.cs">
@@ -237,69 +237,69 @@
       <DependentUpon>MainHome.cs</DependentUpon>
     </Compile>
     <Compile Include="resources\db\InitDb.cs" />
-    <Compile Include="models\configuration\dynamicconfig\CredentialsConfig.cs" />
+    <Compile Include="core\models\configuration\CredentialsConfig.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Forms\mysql\status\AnalyzeDbForm.cs">
+    <Compile Include="ui\forms\status\AnalyzeDbForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\mysql\status\AnalyzeDbForm.Designer.cs">
+    <Compile Include="ui\forms\status\AnalyzeDbForm.Designer.cs">
       <DependentUpon>AnalyzeDbForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="usercontrols\CredentialsUserControl.cs">
+    <Compile Include="ui\usercontrols\CredentialsUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="usercontrols\CredentialsUserControl.Designer.cs">
+    <Compile Include="ui\usercontrols\CredentialsUserControl.Designer.cs">
       <DependentUpon>CredentialsUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="usercontrols\DataView.cs">
+    <Compile Include="ui\usercontrols\DataView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="usercontrols\DataView.Designer.cs">
+    <Compile Include="ui\usercontrols\DataView.Designer.cs">
       <DependentUpon>DataView.cs</DependentUpon>
     </Compile>
-    <Compile Include="usercontrols\Editor.cs">
+    <Compile Include="ui\usercontrols\Editor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="usercontrols\Editor.Designer.cs">
+    <Compile Include="ui\usercontrols\Editor.Designer.cs">
       <DependentUpon>Editor.cs</DependentUpon>
     </Compile>
-    <Compile Include="models\Table.cs" />
-    <Compile Include="usercontrols\TableView.cs">
+    <Compile Include="core\models\Table.cs" />
+    <Compile Include="ui\usercontrols\TableView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="usercontrols\TableView.Designer.cs">
+    <Compile Include="ui\usercontrols\TableView.Designer.cs">
       <DependentUpon>TableView.cs</DependentUpon>
     </Compile>
-    <Compile Include="usercontrols\TabView.cs">
+    <Compile Include="ui\usercontrols\TabView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="usercontrols\TabView.Designer.cs">
+    <Compile Include="ui\usercontrols\TabView.Designer.cs">
       <DependentUpon>TabView.cs</DependentUpon>
     </Compile>
-    <Compile Include="usercontrols\UserControlReference.cs">
+    <Compile Include="ui\usercontrols\UserControlReference.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="utils\editor\AutoMenuItemBuilder.cs" />
-    <Compile Include="utils\editor\EditorConfig.cs" />
-    <Compile Include="utils\encryption\EncryptionUtils.cs" />
-    <Compile Include="utils\parsers\EditorUtils.cs" />
-    <Compile Include="utils\parsers\Formatter.cs" />
-    <Compile Include="utils\parsers\LIB.cs" />
-    <Compile Include="exceptions\MyFormatterException.cs" />
-    <Compile Include="utils\OS.cs" />
-    <Compile Include="creational\sql\MySqlSqlBuilder.cs" />
-    <Compile Include="utils\parsers\SqlStatementParser.cs" />
-    <Compile Include="utils\parsers\SqlStatementParserWrapper.cs" />
-    <Compile Include="utils\parsers\StatementType.cs" />
-    <Compile Include="utils\parsers\StringUtils.cs" />
-    <EmbeddedResource Include="Forms\mysql\connect\DatabaseConnect.resx">
+    <Compile Include="core\AutoMenuItemBuilder.cs" />
+    <Compile Include="core\EditorConfig.cs" />
+    <Compile Include="core\security\EncryptionUtils.cs" />
+    <Compile Include="core\parsers\EditorUtils.cs" />
+    <Compile Include="core\parsers\Formatter.cs" />
+    <Compile Include="core\parsers\LIB.cs" />
+    <Compile Include="core\exceptions\MyFormatterException.cs" />
+    <Compile Include="core\OS.cs" />
+    <Compile Include="core\sql\MySqlSqlBuilder.cs" />
+    <Compile Include="core\parsers\SqlStatementParser.cs" />
+    <Compile Include="core\parsers\SqlStatementParserWrapper.cs" />
+    <Compile Include="core\parsers\StatementType.cs" />
+    <Compile Include="core\parsers\StringUtils.cs" />
+    <EmbeddedResource Include="ui\forms\connect\DatabaseConnect.resx">
       <DependentUpon>DatabaseConnect.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\mysql\NewSqlServer.resx">
+    <EmbeddedResource Include="ui\forms\NewSqlServer.resx">
       <DependentUpon>NewSqlServer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home.resx">
+    <EmbeddedResource Include="ui\forms\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainHome.resx">
@@ -315,22 +315,22 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Forms\mysql\status\AnalyzeDbForm.resx">
+    <EmbeddedResource Include="ui\forms\status\AnalyzeDbForm.resx">
       <DependentUpon>AnalyzeDbForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="usercontrols\CredentialsUserControl.resx">
+    <EmbeddedResource Include="ui\usercontrols\CredentialsUserControl.resx">
       <DependentUpon>CredentialsUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="usercontrols\DataView.resx">
+    <EmbeddedResource Include="ui\usercontrols\DataView.resx">
       <DependentUpon>DataView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="usercontrols\Editor.resx">
+    <EmbeddedResource Include="ui\usercontrols\Editor.resx">
       <DependentUpon>Editor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="usercontrols\TableView.resx">
+    <EmbeddedResource Include="ui\usercontrols\TableView.resx">
       <DependentUpon>TableView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="usercontrols\TabView.resx">
+    <EmbeddedResource Include="ui\usercontrols\TabView.resx">
       <DependentUpon>TabView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="firedumpdbDataSet.xsc">

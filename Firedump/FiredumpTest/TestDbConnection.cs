@@ -4,10 +4,8 @@ using MySql.Data;
 using MySql.Data.MySqlClient;
 using Firedump.Forms.mysql;
 using System.Collections.Generic;
-using Firedump.models.databaseUtils;
-using Firedump.models.db;
 using Firedump;
-using Firedump.models.dbUtils;
+using Firedump.core.db;
 
 namespace FiredumpTest
 {

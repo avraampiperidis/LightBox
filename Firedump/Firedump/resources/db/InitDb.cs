@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
-using Firedump.utils;
+using Firedump.core;
 
 namespace Firedump.db
 {
